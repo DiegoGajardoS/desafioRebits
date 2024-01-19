@@ -30,7 +30,7 @@
 	        <label class="song-info" id="song-info-1">
 	          
 	          	<div class="button-container" >
-	          		<button type="button" class="my-button" style="margin-top: 33px;"> Vehiculos
+	          		<button type="button" class="my-button" style="margin-top: 35px;" style="margin-bottom: 3px;"> Vehiculos
 	          		
                 		<i class="fa-solid fa-right-to-bracket"></i>
             		</button>
@@ -40,7 +40,7 @@
 	      
 	        <label class="song-info" id="song-info-2">
 	          	<div class="button-container">
-	            <button type="button" class="my-button"> Usuarios
+	            <button type="button" class="my-button" style="margin-top: 5px;" style="margin-bottom: 1px;"> Usuarios
                 		<i class="fa-solid fa-right-to-bracket"></i>
             		</button>
 	            </div>
