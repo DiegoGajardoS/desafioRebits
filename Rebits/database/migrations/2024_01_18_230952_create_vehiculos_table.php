@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('modelo');
             $table->unsignedSmallInteger('anho');
             $table->foreignId('duenho_id')->constrained('usuarios');
-            $table->decimal('precio', 10, 2);
+            $table->integer('precio');
             $table->timestamps();
         });
     }

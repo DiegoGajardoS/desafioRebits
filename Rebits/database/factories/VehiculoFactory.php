@@ -19,7 +19,7 @@ class VehiculoFactory extends Factory
             'modelo' => $this->faker->word,
             'anho' => $this->faker->numberBetween(1960, 2024), 
             'duenho_id' => $usuario->id,
-            'precio' => $this->faker->randomFloat(2, 1000, 50000),
+            'precio' => $this->faker->randomNumber(8),
         ];
     }
 }
