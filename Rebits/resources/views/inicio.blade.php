@@ -29,12 +29,12 @@
 	      <div class="info-area" id="test">
 	        <label class="song-info" id="song-info-1">
 	          
-	          	<div class="button-container" >
-	          		<button type="button" class="my-button" style="margin-top: 35px;" style="margin-bottom: 3px;"> Vehiculos
-	          		
-                		<i class="fa-solid fa-right-to-bracket"></i>
-            		</button>
-	          	</div>
+	          	<div class="button-container">
+    						<a href="{{ route('listarVehiculos') }}" class="my-button" style="margin-top: 33px;" style="text-decoration: none;">
+        					Vehiculos
+        					<i class="fa-solid fa-right-to-bracket"></i>
+    						</a>
+							</div>
 	          
 	        </label>
 	      

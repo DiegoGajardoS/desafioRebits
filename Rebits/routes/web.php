@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\VehiculoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +17,10 @@ Route::get('/', function () {
     return view('inicio');
 });
 
+
+Route::get('/vehiculos',[VehiculoController::class,"listarVehiculos"])->name('listarVehiculos');;
+
+
 Route::get('/users', function () {
     return view('usuarios');
-});
-Route::get('/vehicles', function () {
-    return view('vehiculos');
 });

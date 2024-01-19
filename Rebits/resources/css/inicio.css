@@ -183,8 +183,15 @@ img {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    text-decoration: none;
 }
 
 .my-button:hover {
     background-color: #2980b9;
+
+}
+
+.titulo-tabla {
+   background-color: #007BFF;
+    color: white;
 }
