@@ -20,6 +20,7 @@
       <th scope="col">Año</th>
       <th scope="col">Dueño</th>
       <th scope="col">Precio</th>
+      <th scope="col">Edición</th>
     </tr>
   </thead>
   <tbody class="table-group-divider">
@@ -30,9 +31,70 @@
       <td>{{$item->modelo}}</td>
       <td>{{$item->anho}}</td>
       <td> 
-        <a href="" class="btn btn-info btn-sm"><i class="fa-solid fa-user"></i> </a> 
-        <a href="" class="btn btn-info btn-sm"><i class="fa-solid fa-users"></i> </a> </td>
+        Actual <a href="#" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalUsuario{{ $item->id }}">
+          <i class="fa-solid fa-user"></i> </a> 
+        Historico 
+        @foreach($item->historicos as $index => $historico)
+
+            <!-- Modal para historicos-->
+          <div class="modal fade" id="modalHistorico{{ $item->id }}_{{ $index }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Datos historicos</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <h3>Dueños:</h3>
+                    <ul>
+                      @foreach($item->historicos as $historicoDetallado)
+                            <li> {{ $historicoDetallado->usuario->nombre }} {{ $historicoDetallado->usuario->apellidos}} - Fecha: {{$historicoDetallado->created_at}}
+                            </li>
+                      @endforeach
+
+                    </ul>
+
+                    
+                
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>z
+          </div>
+        @endforeach <a href="" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalHistorico{{ $item->id }}_{{ $index }}">
+                <i class="fa-solid fa-users"></i>
+            </a>
+      </td>
       <td>${{$item->precio}}</td>
+      <td> <a href="" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i> </a>  </td>
+          
+          <!-- Modal para visualizar dueño-->
+
+          <div class="modal fade" id="modalUsuario{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Datos de usuario dueño del vehiculo</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Nombre: {{ $item->dueno->nombre }}</p>
+                  <p>Apellido: {{ $item->dueno->apellidos }}</p>
+                  <p>Correo: {{ $item->dueno->correo }}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          
+          
     </tr>
 
     @endforeach

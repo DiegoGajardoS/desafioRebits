@@ -10,7 +10,7 @@ class VehiculoController extends Controller
     public function listarVehiculos()
     {
         
-        $vehiculos = Vehiculo::all();
-        return view("vehiculos")->with("vehiculos", $vehiculos);
+        $vehiculos = Vehiculo::with('dueno', 'historicos.usuario')->get();
+        return view('vehiculos', compact('vehiculos'));
     }
 }
