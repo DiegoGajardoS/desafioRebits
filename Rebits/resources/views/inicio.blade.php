@@ -6,9 +6,14 @@
 </head>
 
 <body>
-	<div>
-		<h1>Prueba postulación trabajo Desarrollador Web</h1>
-  			<h2>By Diego Gajardo</h2>
+
+    <div>
+
+		<h1>Prueba postulación trabajo Desarrollador Web - ReBits</h1>
+  			<h2>Sistema CRUD de vehículos y usuarios</h2>
+  			<h2>Click en la imagen para desplegar el enlace a vehículos o usuarios</h2>
+  			<h4>By Diego Gajardo</h4>
+  			
 	</div>
 	  
 	  <div class="container">
@@ -31,8 +36,8 @@
 	        <label class="song-info" id="song-info-1">
 	          
 	          	<div class="button-container">
-    						<a href="{{ route('listarVehiculos') }}" class="my-button" style="margin-top: 33px;" style="text-decoration: none;">
-        					Vehiculos
+    						<a href="{{ route('listarVehiculos') }}" class="my-button" style="margin-top: 47px;text-decoration: none;">
+        					Vehículos
         					<i class="fa-solid fa-right-to-bracket"></i>
     						</a>
 							</div>
@@ -41,16 +46,29 @@
 	      
 	        <label class="song-info" id="song-info-2">
 	          	<div class="button-container">
-	            <a href="/usuarios" class="my-button" style="margin-top: 5px;" style="margin-bottom: 1px;"> Usuarios
+	            <a href="/usuarios" class="my-button" style="margin-top: 5px; margin-bottom: 7px;text-decoration: none;"> Usuarios
                 		<i class="fa-solid fa-right-to-bracket"></i>
             		</a>
 	            </div>
 	        </label>
+
 	      </div>
 	    </div>
 	    
 	  </div>
+	  <div class="glowing">
+    
+    		<span style="--i:1;"></span>
+    
+    		<span style="--i:2;"></span>
+    
+    		<span style="--i:3;"></span>
+
+    
+  	</div>
+
 	</div>
+
 <script src="{{ asset('js/inicio.js') }}" defer></script>
 <script src="https://kit.fontawesome.com/90f6459d75.js" crossorigin="anonymous"></script>
 </body>
