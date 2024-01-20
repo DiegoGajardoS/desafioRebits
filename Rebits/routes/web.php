@@ -17,8 +17,11 @@ Route::get('/', function () {
     return view('inicio');
 });
 
-
+// ruta para listar los vehiculos
 Route::get('/vehiculos',[VehiculoController::class,"listarVehiculos"])->name('listarVehiculos');;
+
+// ruta para modificar un vehiculo
+Route::post('/editar-vehiculo',[VehiculoController::class,"editarVehiculo"])->name('editarVehiculo');;
 
 
 Route::get('/users', function () {
