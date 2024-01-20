@@ -29,4 +29,20 @@ class UsuarioController extends Controller
             return back()->with("Error","Error al modificar datos del vehiculo");
         }
     }
+
+    public function crearUsuario(Request $request){
+        try {
+            $nuevoUsuario = new Usuario([
+            'nombre' => $request->txtNombreNew,
+            'apellidos' => $request->txtApellidosNew,
+            'correo' => $request->txtCorreoNew,
+            ]);
+            //guardar vehiculo nuevo
+            $nuevoUsuario->save();
+
+            return back()->with("Correcto","Usuario creado correctamente");
+        } catch (\Throwable $th) {
+            return back()->with("Error","Error al guardar nuevo usuario");
+        }
+    }
 }

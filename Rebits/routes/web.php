@@ -30,11 +30,11 @@ Route::post('/crear-vehiculo',[VehiculoController::class,"CrearVehiculo"])->name
 // ruta para listar los usuarios
 Route::get('/usuarios',[UsuarioController::class,"listarUsuarios"])->name('listarUsuarios');
 
-
 // ruta para modificar un usuario
 Route::post('/editar-usuario',[UsuarioController::class,"editarUsuario"])->name('editarUsuario');
 
-
+// ruta para crear un usuario
+Route::post('/crear-usuario',[UsuarioController::class,"crearUsuario"])->name('crearUsuario');
 
 
 Route::get('/users', function () {
