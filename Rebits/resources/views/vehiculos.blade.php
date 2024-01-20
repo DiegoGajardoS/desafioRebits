@@ -24,16 +24,72 @@
           <a class="nav-link active" aria-current="page" href="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Usuarios</a>
+          <a class="nav-link" href="/usuarios">Usuarios</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
+<h1 class="text-center p-3">VEHICULOS</h1>
 
 <div class="p-5 table-responsive">
- 
+ <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalRegistrar  "> Registrar nuevo vehiculo </button>
+
+  <!-- Modal para registrar nuevo vehiculo-->
+          <div class="modal fade" id="modalRegistrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar datos del vehiculo</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="{{ route('crearVehiculo') }}" method="post">
+                        @csrf
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Marca</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtMarcaNew" >
+                          <div id="emailHelp" class="form-text">Marca del vehiculo.</div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Modelo</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtModeloNew">
+                          <div id="emailHelp" class="form-text">Modelo del vehiculo.</div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Año</label>
+                          <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtAnhoNew">
+                          <div id="emailHelp" class="form-text">Año del vehiculo.</div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="dueno" class="form-label">Dueño</label>
+                          <select class="form-select" id="dueno" name="txtdueno_idNew">
+                              @foreach($usuarios as $usuario)
+                                  <option value="{{ $usuario->id }}">{{ $usuario->nombre }} {{ $usuario->apellidos }}</option>
+                              @endforeach
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Precio</label>
+                          <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtPrecioNew">
+                          <div id="emailHelp" class="form-text">Precio del vehiculo.</div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+                      </form>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+
+
   <table class="table table-striped table-bordered table-hover">
   <thead class="titulo-tabla">
     
@@ -78,9 +134,6 @@
                       @endforeach
 
                     </ul>
-
-                    
-                
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -181,7 +234,10 @@
     
   </tbody>
 </table>
+
 </div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/90f6459d75.js" crossorigin="anonymous"></script>

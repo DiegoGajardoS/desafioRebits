@@ -2,6 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
+  <title>Inicio</title>
 </head>
 
 <body>
@@ -40,9 +41,9 @@
 	      
 	        <label class="song-info" id="song-info-2">
 	          	<div class="button-container">
-	            <button type="button" class="my-button" style="margin-top: 5px;" style="margin-bottom: 1px;"> Usuarios
+	            <a href="/usuarios" class="my-button" style="margin-top: 5px;" style="margin-bottom: 1px;"> Usuarios
                 		<i class="fa-solid fa-right-to-bracket"></i>
-            		</button>
+            		</a>
 	            </div>
 	        </label>
 	      </div>

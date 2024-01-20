@@ -50,4 +50,30 @@ class VehiculoController extends Controller
         }
 
     }
+
+    public function crearVehiculo(Request $request){
+        try {
+            $nuevoVehiculo = new Vehiculo([
+                'marca' => $request->txtMarcaNew,
+                'modelo' => $request->txtModeloNew,
+                'anho' => $request->txtAnhoNew,
+                'duenho_id' => $request->txtdueno_idNew,
+                'precio' => $request->txtPrecioNew,
+            ]);
+            //guardar vehiculo nuevo
+            $nuevoVehiculo->save();
+
+            //guardar en el registro historico
+            Historico::create([
+                'vehiculo_id' => $nuevoVehiculo->id,
+                'usuario_id' => $request->txtdueno_idNew,
+            ]);
+            return back()->with("Correcto","Vehiculo creado correctamente");
+            
+        } catch (\Throwable $th) {
+
+            return back()->with("Error","Error al guardar nuevo vehiculo");
+            
+        }
+    }
 }

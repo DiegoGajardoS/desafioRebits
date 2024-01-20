@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\UsuarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,12 +19,16 @@ Route::get('/', function () {
 });
 
 // ruta para listar los vehiculos
-Route::get('/vehiculos',[VehiculoController::class,"listarVehiculos"])->name('listarVehiculos');;
+Route::get('/vehiculos',[VehiculoController::class,"listarVehiculos"])->name('listarVehiculos');
 
 // ruta para modificar un vehiculo
-Route::post('/editar-vehiculo',[VehiculoController::class,"editarVehiculo"])->name('editarVehiculo');;
+Route::post('/editar-vehiculo',[VehiculoController::class,"editarVehiculo"])->name('editarVehiculo');
 
+// ruta para crear un vehiculo
+Route::post('/crear-vehiculo',[VehiculoController::class,"CrearVehiculo"])->name('crearVehiculo');
 
+// ruta para listar los usuarios
+Route::get('/usuarios',[UsuarioController::class,"listarUsuarios"])->name('listarUsuarios');
 Route::get('/users', function () {
     return view('usuarios');
 });
