@@ -34,11 +34,11 @@
   <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalRegistrar"> Registrar nuevo usuario </button>
    <!-- Modal para registrar nuevo Usuario-->
 
-          <div class="modal fade" id="modalRegistrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modalRegistrar" tabindex="-1" aria-labelledby="modalRegistrar" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Editar datos de usuario</h1>
+                  <h1 class="modal-title fs-5" id="editlabel">Editar datos de usuario</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -46,28 +46,28 @@
                         @csrf
                         
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtNombreNew" >
+                          <label for="inputNombre" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="inputNombre" aria-describedby="emailHelp" name="txtNombreNew" >
                           <div id="emailHelp" class="form-text">Nombre del Usuario.</div>
                         </div>
 
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Apellido</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtApellidosNew" >
+                          <label for="inputApellidos" class="form-label">Apellido</label>
+                          <input type="text" class="form-control" id="inputApellidos" aria-describedby="emailHelp" name="txtApellidosNew" >
                           <div id="emailHelp" class="form-text">Apellido del usuario.</div>
                         </div>
 
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Correo</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtCorreoNew" >
+                          <label for="InputEmail1" class="form-label">Correo</label>
+                          <input type="text" class="form-control" id="InputEmail1" aria-describedby="emailHelp" name="txtCorreoNew" >
                           <div id="emailHelp" class="form-text">Correo del usuario.</div>
                         </div>
 
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Registrar</button>
-                </div>
-                      </form>
+                        </div>
+                    </form>
                 </div>
                 
               </div>
@@ -97,11 +97,11 @@
 
       <!-- Modal para editar Usuario-->
 
-          <div class="modal fade" id="modalEdit{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modalEdit{{ $item->id }}" tabindex="-1" aria-labelledby="modalEditar" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Editar datos de usuario</h1>
+                  <h1 class="modal-title fs-5" id="modalEditar">Editar datos de usuario</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -109,28 +109,29 @@
                         @csrf
                         <input type="hidden" name="usuario_id" value="{{ $item->id }}">
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtNombre" value="{{$item->nombre}}">
-                          <div id="emailHelp" class="form-text">Nombre del Usuario.</div>
+                          <label for="inputNombre" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="inputNombre" aria-describedby="nombreHelp" name="txtNombre" value="{{$item->nombre}}">
+                          <div id="nombreHelp" class="form-text">Nombre del Usuario.</div>
                         </div>
 
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Apellido</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtApellidos" value="{{$item->apellidos}}">
-                          <div id="emailHelp" class="form-text">Apellido del usuario.</div>
+                          <label for="inputApellidos" class="form-label">Apellido</label>
+                          <input type="text" class="form-control" id="inputApellidos" aria-describedby="nombreHelp" name="txtApellidos" value="{{$item->apellidos}}">
+                          <div id="nombreHelp" class="form-text">Apellido del usuario.</div>
                         </div>
 
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Correo</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtCorreo" value="{{$item->correo}}">
+                          <label for="InputEmail1" class="form-label">Correo</label>
+                          <input type="text" class="form-control" id="InputEmail1" aria-describedby="emailHelp" name="txtCorreo" value="{{$item->correo}}">
                           <div id="emailHelp" class="form-text">Correo del usuario.</div>
                         </div>
-
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Modificar</button>
-                </div>
-                      </form>
+                        </div>
+                 </form>
+                
+                
                 </div>
                 
               </div>
@@ -138,10 +139,13 @@
           </div>
     </tr>
     @endforeach
+    
   </tbody>
 </table>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/90f6459d75.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
