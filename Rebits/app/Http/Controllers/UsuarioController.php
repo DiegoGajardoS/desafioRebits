@@ -11,4 +11,22 @@ class UsuarioController extends Controller
         $usuarios = Usuario::all();
         return view('usuarios')->with('usuarios',$usuarios);
     }
+
+    public function editarUsuario(Request $request){
+
+        try {
+
+            $usuario = Usuario::find($request->usuario_id);
+
+            $usuario->update([
+            'nombre' => $request->txtNombre,
+            'apellidos' => $request->txtApellidos,
+            'correo' => $request->txtCorreo,
+            ]);
+
+            return back()->with("Correcto","Usuario modificado correctamente");
+        } catch (\Throwable $th) {
+            return back()->with("Error","Error al modificar datos del vehiculo");
+        }
+    }
 }
