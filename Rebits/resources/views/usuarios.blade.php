@@ -4,16 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
 	<title>Usuarios</title>
 
-  <style>
-        body {
-            background-color: #4aeadc;
-        }
-    </style>
+
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -28,10 +25,9 @@
     </div>
   </div>
 </nav>
-<h1 class="text-center p-3">USUARIOS</h1>
 
 <div class="p-5 table-responsive"> 
-  <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalRegistrar"> Registrar nuevo usuario </button>
+  <button class="my-button" data-bs-toggle="modal" data-bs-target="#modalRegistrar"> Registrar nuevo usuario </button>
    <!-- Modal para registrar nuevo Usuario-->
 
           <div class="modal fade" id="modalRegistrar" tabindex="-1" aria-labelledby="modalRegistrar" aria-hidden="true">
@@ -64,8 +60,8 @@
                         </div>
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        <button type="button" class="my-button" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="my-button">Registrar</button>
                         </div>
                     </form>
                 </div>
@@ -75,14 +71,14 @@
           </div>
 
 
-  <table class="table">
-  <thead>
+  <table class="table table-striped table-bordered table-hover my-table">
+  <thead class="titulo-tabla">
     <tr>
-      <th scope="col">#ID</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Correo</th>
-      <th scope="col">Edicion</th>
+      <th scope="col" class=" titulo-tabla ">#ID</th>
+      <th scope="col" class=" titulo-tabla ">Nombre</th>
+      <th scope="col" class=" titulo-tabla ">Apellido</th>
+      <th scope="col" class=" titulo-tabla ">Correo</th>
+      <th scope="col" class=" titulo-tabla ">Edicion</th>
     </tr>
   </thead>
   <tbody class="table-group-divider">
@@ -92,7 +88,7 @@
       <td>{{$item->nombre}}</td>
       <td>{{$item->apellidos}}</td>
       <td>{{$item->correo}}</td>
-      <td> <a href="" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit{{ $item->id }}"><i class="fa-solid fa-pen-to-square"></i> </a></td>
+      <td> <a href="" class="my-button-small" data-bs-toggle="modal" data-bs-target="#modalEdit{{ $item->id }}"><i class="fa-solid fa-pen-to-square"></i> </a></td>
 
 
       <!-- Modal para editar Usuario-->
@@ -126,8 +122,8 @@
                           <div id="emailHelp" class="form-text">Correo del usuario.</div>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Modificar</button>
+                        <button type="button" class="my-button" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="my-button">Modificar</button>
                         </div>
                  </form>
                 

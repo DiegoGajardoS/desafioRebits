@@ -4,36 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  
+  <link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
 	<title>Vehiculos</title>
-
-  <style>
-        body {
-            background-color: #4aeadc;
-        }
-        .my-button {
-        background-color: #000000;
-        color: #fff;
-        padding: 10px 50px;
-        border: none;
-        border-radius: 50px;
-       }
-       .my-button:hover {
-        background-color: #abb8c3;
-        color: #000000;
-        }
-       .my-button-small {
-        background-color: #000000;
-        color: #fff;
-        padding: 5px 10px;
-        border: none;
-        border-radius: 10px;
-       }
-       .my-button-small:hover {
-        background-color: #abb8c3;
-        color: #000000;
-        }
-    </style>
 </head>
 <body>
 
@@ -109,20 +81,17 @@
               </div>
             </div>
           </div>
-
-
-
-  <table class="table table-striped table-bordered table-hover">
+  <table class="table table-striped table-bordered table-hover my-table">
   <thead class="titulo-tabla">
     
     <tr>
-      <th scope="col">#ID</th>
-      <th scope="col">Marca</th>
-      <th scope="col">Modelo</th>
-      <th scope="col">Año</th>
-      <th scope="col">Dueño(s)</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Edición</th>
+      <th scope="col" class=" titulo-tabla ">#ID</th>
+      <th scope="col" class=" titulo-tabla ">Marca</th>
+      <th scope="col" class=" titulo-tabla ">Modelo</th>
+      <th scope="col" class=" titulo-tabla ">Año</th>
+      <th scope="col" class=" titulo-tabla ">Dueño(s)</th>
+      <th scope="col" class=" titulo-tabla ">Precio</th>
+      <th scope="col" class=" titulo-tabla ">Edición</th>
     </tr>
   </thead>
   <tbody class="table-group-divider">
@@ -242,23 +211,17 @@
                           <div id="precioHelp" class="form-text">Precio del vehculo.</div>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="my-button" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="my-button">Modificar</button>
-                </div>
-                      </form>
+                            <button type="button" class="my-button" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="my-button">Modificar</button>
+                        </div>
+                  </form>
                 </div>
                 
               </div>
             </div>
-          </div>
-
-
-          
-          
+          </div>       
     </tr>
-
     @endforeach
-    
   </tbody>
 </table>
 

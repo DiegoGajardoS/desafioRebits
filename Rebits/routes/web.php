@@ -37,6 +37,3 @@ Route::post('/editar-usuario',[UsuarioController::class,"editarUsuario"])->name(
 Route::post('/crear-usuario',[UsuarioController::class,"crearUsuario"])->name('crearUsuario');
 
 
-Route::get('/users', function () {
-    return view('usuarios');
-});
