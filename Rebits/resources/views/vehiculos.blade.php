@@ -36,32 +36,32 @@
  <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalRegistrar  "> Registrar nuevo vehiculo </button>
 
   <!-- Modal para registrar nuevo vehiculo-->
-          <div class="modal fade" id="modalRegistrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modalRegistrar" tabindex="-1" aria-labelledby="modalRegistrarAuto" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar datos del vehiculo</h1>
+                  <h1 class="modal-title fs-5" id="modalRegistrarAuto">Registrar datos del vehiculo</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <form action="{{ route('crearVehiculo') }}" method="post">
                         @csrf
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Marca</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtMarcaNew" >
-                          <div id="emailHelp" class="form-text">Marca del vehiculo.</div>
+                          <label for="inputMarca" class="form-label">Marca</label>
+                          <input type="text" class="form-control" id="inputMarca" aria-describedby="marcaHelp" name="txtMarcaNew" >
+                          <div id="marcaHelp" class="form-text">Marca del vehiculo.</div>
                         </div>
 
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Modelo</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtModeloNew">
-                          <div id="emailHelp" class="form-text">Modelo del vehiculo.</div>
+                          <label for="inputModelo" class="form-label">Modelo</label>
+                          <input type="text" class="form-control" id="inputModelo" aria-describedby="modeloHelp" name="txtModeloNew">
+                          <div id="modeloHelp" class="form-text">Modelo del vehiculo.</div>
                         </div>
 
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Año</label>
-                          <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtAnhoNew">
-                          <div id="emailHelp" class="form-text">Año del vehiculo.</div>
+                          <label for="inputAnho" class="form-label">Año</label>
+                          <input type="number" class="form-control" id="inputAnho" aria-describedby="anhoHelp" name="txtAnhoNew">
+                          <div id="anhoHelp" class="form-text">Año del vehiculo.</div>
                         </div>
 
                         <div class="mb-3">
@@ -73,9 +73,9 @@
                           </select>
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Precio</label>
-                          <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtPrecioNew">
-                          <div id="emailHelp" class="form-text">Precio del vehiculo.</div>
+                          <label for="inputPrecio" class="form-label">Precio</label>
+                          <input type="number" class="form-control" id="inputPrecio" aria-describedby="precioHelp" name="txtPrecioNew">
+                          <div id="precioHelp" class="form-text">Precio del vehiculo.</div>
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -117,11 +117,11 @@
         @foreach($item->historicos as $index => $historico)
 
             <!-- Modal para historicos-->
-          <div class="modal fade" id="modalHistorico{{ $item->id }}_{{ $index }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modalHistorico{{ $item->id }}_{{ $index }}" tabindex="-1" aria-labelledby="modalHistoricos" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Datos historicos</h1>
+                  <h1 class="modal-title fs-5" id="modalHistoricos">Datos historicos</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -151,11 +151,11 @@
           
           <!-- Modal para visualizar dueño-->
 
-          <div class="modal fade" id="modalUsuario{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modalUsuario{{ $item->id }}" tabindex="-1" aria-labelledby="modalDuenho" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Datos de usuario dueño del vehiculo</h1>
+                  <h1 class="modal-title fs-5" id="modalDuenho">Datos de usuario dueño del vehiculo</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -172,11 +172,11 @@
 
           <!-- Modal para editar vehiculo-->
 
-          <div class="modal fade" id="modalEdit{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modalEdit{{ $item->id }}" tabindex="-1" aria-labelledby="modalEditarVehiculo" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Editar datos del vehiculo</h1>
+                  <h1 class="modal-title fs-5" id="modalEditarVehiculo">Editar datos del vehiculo</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -184,21 +184,21 @@
                         @csrf
                         <input type="hidden" name="vehiculo_id" value="{{ $item->id }}">
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Marca</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtMarca" value="{{$item->marca}}">
-                          <div id="emailHelp" class="form-text">Marca del vehiculo.</div>
+                          <label for="inputMarca" class="form-label">Marca</label>
+                          <input type="text" class="form-control" id="inputMarca" aria-describedby="marcaHelp" name="txtMarca" value="{{$item->marca}}">
+                          <div id="marcaHelp" class="form-text">Marca del vehiculo.</div>
                         </div>
 
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Modelo</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtModelo" value="{{$item->modelo}}">
-                          <div id="emailHelp" class="form-text">Modelo del vehiculo.</div>
+                          <label for="inputModelo" class="form-label">Modelo</label>
+                          <input type="text" class="form-control" id="inputModelo" aria-describedby="modeloHelp" name="txtModelo" value="{{$item->modelo}}">
+                          <div id="modeloHelp" class="form-text">Modelo del vehiculo.</div>
                         </div>
 
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Año</label>
-                          <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtAnho" value="{{$item->anho}}">
-                          <div id="emailHelp" class="form-text">Año del vehiculo.</div>
+                          <label for="inputAnho" class="form-label">Año</label>
+                          <input type="number" class="form-control" id="inputAnho" aria-describedby="anhoHelp" name="txtAnho" value="{{$item->anho}}">
+                          <div id="anhoHelp" class="form-text">Año del vehiculo.</div>
                         </div>
 
                         <div class="mb-3">
@@ -210,9 +210,9 @@
                           </select>
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Precio</label>
-                          <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtPrecio" value="{{$item->precio}}">
-                          <div id="emailHelp" class="form-text">Precio del vehiculo.</div>
+                          <label for="inputPrecio" class="form-label">Precio</label>
+                          <input type="number" class="form-control" id="inputPrecio" aria-describedby="precioHelp" name="txtPrecio" value="{{$item->precio}}">
+                          <div id="precioHelp" class="form-text">Precio del vehiculo.</div>
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
