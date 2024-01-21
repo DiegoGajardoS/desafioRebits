@@ -53,7 +53,11 @@ class UsuarioController extends Controller
             // En caso de que la validacion falle, se devuelven los errores
 
             if ($validator->fails()) {
-            return back()->with("Error", "Error al guardar un nuevo usuario, por favor verifique que completó todos los campos necesarios y que el correo se ingresa de la manera correcta")->with('message.duration', 5);;
+            return back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with("Error", "Error al guardar un nuevo usuario, por favor verifique que completó todos los campos necesarios y que el correo se ingresa de la manera correcta")
+                ->with('message.duration', 5);
             }else{
                 //si la validacion es exitosa se guarda el nuevo usuario
             $nuevoUsuario = new Usuario([
