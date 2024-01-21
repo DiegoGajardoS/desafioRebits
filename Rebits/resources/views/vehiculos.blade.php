@@ -20,12 +20,13 @@
         <li class="nav-item">
           <a class="nav-link" href="/usuarios">Usuarios</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/historicos">Registro histórico</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-
-
 <div class="p-5 table-responsive">
  <button class="my-button" data-bs-toggle="modal" data-bs-target="#modalRegistrar  "> Registrar nuevo vehículo </button>
 

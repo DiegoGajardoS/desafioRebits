@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\HistoricoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,4 +37,5 @@ Route::post('/editar-usuario',[UsuarioController::class,"editarUsuario"])->name(
 // ruta para crear un usuario
 Route::post('/crear-usuario',[UsuarioController::class,"crearUsuario"])->name('crearUsuario');
 
-
+// ruta para ver el registro historico
+Route::get('/historicos',[HistoricoController::class,"listarHistoricos"])->name('listarHistoricos');

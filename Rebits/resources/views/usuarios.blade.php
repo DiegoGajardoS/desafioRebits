@@ -21,6 +21,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/vehiculos">Vehiculos</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/historicos">Registro histórico</a>
+        </li>
       </ul>
     </div>
   </div>
