@@ -8,9 +8,9 @@ Diego Gajardo Salgado
 
 ## Entorno de desarrollo
 
-PHP 8.3.1
-Laravel Framework 10.41.0
-MySQL
+- PHP 8.3.1
+- Laravel Framework 10.41.0
+- MySQL
 
 ## Instalación 
 
