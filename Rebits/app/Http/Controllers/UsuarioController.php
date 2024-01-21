@@ -24,21 +24,26 @@ class UsuarioController extends Controller
             ]);
             // En caso de que la validacion falle, se devuelven los errores
             if ($validator->fails()) {
-            return back()->with("Error", "Error al modificar datos del usuario, por favor verifique que completó todos los campos necesarios y que el correo se ingresa de la manera correcta")->with('message.duration', 5);;
+            return back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with("Error", "Error al editar un usuario, por favor verifique que completó todos los campos necesarios")
+                ->with('message.duration', 5);
+            }else{
+                    //si la validacion es exitosa se guarda el nuevo usuario
+                    $usuario = Usuario::find($request->usuario_id);
+
+                    $usuario->update([
+                    'nombre' => $request->txtNombre,
+                    'apellidos' => $request->txtApellidos,
+                    'correo' => $request->txtCorreo,
+                    ]);
+
+                    return back()->with("Correcto","Usuario modificado correctamente")->with('message.duration', 5);
             }
-
-            //si la validacion es exitosa se guarda el nuevo usuario
-            $usuario = Usuario::find($request->usuario_id);
-
-            $usuario->update([
-            'nombre' => $request->txtNombre,
-            'apellidos' => $request->txtApellidos,
-            'correo' => $request->txtCorreo,
-            ]);
-
-            return back()->with("Correcto","Usuario modificado correctamente")->with('message.duration', 5);;
+            
         } catch (\Throwable $th) {
-            return back()->with("Error","Error al modificar datos del vehiculo")->with('message.duration', 5);;
+            return back()->with("Error","Error al modificar datos del vehiculo")->with('message.duration', 5);
         }
     }
 
