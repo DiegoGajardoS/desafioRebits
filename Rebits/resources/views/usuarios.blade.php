@@ -29,7 +29,8 @@
   </div>
 </nav>
 
-<div class="p-5 table-responsive"> 
+<div class="p-5 table-responsive">
+  <h1 class="text-center"> Usuarios registrados </h1>
   <button class="my-button" data-bs-toggle="modal" data-bs-target="#modalRegistrar"> Registrar nuevo usuario </button>
    <!-- Modal para registrar nuevo Usuario-->
 
@@ -37,21 +38,24 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="editlabel">Editar datos de usuario</h1>
+                  <h1 class="modal-title fs-5" id="editlabel">Registrar nuevo usuario</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <form action="{{ route('crearUsuario') }}" method="post">
                         @csrf
-                        
+                        <div class="mb-3"> 
+                          <h6> <b> Importante</b>: para registrar un nuevo usuario es necesario completar todos los campos de este formulario</h6>
+                          <h6> <b> Importante</b>: el campo de correo requiere de un email válido, en la forma ###@##.##</h6>
+                        </div>
                         <div class="mb-3">
-                          <label for="inputNombre" class="form-label">Nombre</label>
+                          <label for="inputNombre" class="form-label">Nombre(s)</label>
                           <input type="text" class="form-control" id="inputNombre" aria-describedby="emailHelp" name="txtNombreNew" >
                           <div id="emailHelp" class="form-text">Nombre del Usuario.</div>
                         </div>
 
                         <div class="mb-3">
-                          <label for="inputApellidos" class="form-label">Apellido</label>
+                          <label for="inputApellidos" class="form-label">Apellido(s)</label>
                           <input type="text" class="form-control" id="inputApellidos" aria-describedby="emailHelp" name="txtApellidosNew" >
                           <div id="emailHelp" class="form-text">Apellido del usuario.</div>
                         </div>
@@ -107,14 +111,18 @@
                   <form action="{{ route('editarUsuario') }}" method="post">
                         @csrf
                         <input type="hidden" name="usuario_id" value="{{ $item->id }}">
+                        <div class="mb-3"> 
+                          <h6> <b> Importante</b>: para editar los datos de un usuario es necesario completar todos los campos de este formulario.</h6>
+                          <h6> <b> Importante</b>: el campo de correo requiere de un email válido, en la forma ###@##.##</h6>
+                        </div>
                         <div class="mb-3">
-                          <label for="inputNombre" class="form-label">Nombre</label>
+                          <label for="inputNombre" class="form-label">Nombre(s)</label>
                           <input type="text" class="form-control" id="inputNombre" aria-describedby="nombreHelp" name="txtNombre" value="{{$item->nombre}}">
                           <div id="nombreHelp" class="form-text">Nombre del Usuario.</div>
                         </div>
 
                         <div class="mb-3">
-                          <label for="inputApellidos" class="form-label">Apellido</label>
+                          <label for="inputApellidos" class="form-label">Apellido(s)</label>
                           <input type="text" class="form-control" id="inputApellidos" aria-describedby="nombreHelp" name="txtApellidos" value="{{$item->apellidos}}">
                           <div id="nombreHelp" class="form-text">Apellido del usuario.</div>
                         </div>

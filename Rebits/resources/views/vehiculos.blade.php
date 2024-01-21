@@ -28,6 +28,7 @@
   </div>
 </nav>
 <div class="p-5 table-responsive">
+  <h1 class="text-center"> Vehículos registrados </h1>
  <button class="my-button" data-bs-toggle="modal" data-bs-target="#modalRegistrar  "> Registrar nuevo vehículo </button>
 
   <!-- Modal para registrar nuevo vehiculo-->
@@ -36,11 +37,16 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h1 class="modal-title fs-5" id="modalRegistrarAuto">Registrar nuevo vehículo</h1>
+
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <form action="{{ route('crearVehiculo') }}" method="post">
                         @csrf
+
+                        <div class="mb-3"> 
+                          <h6> <b> Importante</b>: para registrar un nuevo vehículo es necesario completar todos los campos de este formulario</h6>
+                        </div>
                         <div class="mb-3">
                           <label for="inputMarca" class="form-label">Marca</label>
                           <input type="text" class="form-control" id="inputMarca" aria-describedby="marcaHelp" name="txtMarcaNew" >
@@ -55,7 +61,7 @@
 
                         <div class="mb-3">
                           <label for="inputAnho" class="form-label">Año</label>
-                          <input type="number" class="form-control" id="inputAnho" aria-describedby="anhoHelp" name="txtAnhoNew">
+                          <input type="number" class="form-control" id="inputAnho" aria-describedby="anhoHelp" name="txtAnhoNew" min="1886">
                           <div id="anhoHelp" class="form-text">Año del vehículo.</div>
                         </div>
 
@@ -69,7 +75,7 @@
                         </div>
                         <div class="mb-3">
                           <label for="inputPrecio" class="form-label">Precio</label>
-                          <input type="number" class="form-control" id="inputPrecio" aria-describedby="precioHelp" name="txtPrecioNew">
+                          <input type="number" class="form-control" id="inputPrecio" aria-describedby="precioHelp" name="txtPrecioNew" min="1">
                           <div id="precioHelp" class="form-text">Precio del vehículo.</div>
                         </div>
                         <div class="modal-footer">
@@ -155,8 +161,8 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p>Nombre: {{ $item->dueno->nombre }}</p>
-                  <p>Apellido: {{ $item->dueno->apellidos }}</p>
+                  <p>Nombre(s): {{ $item->dueno->nombre }}</p>
+                  <p>Apellido(s): {{ $item->dueno->apellidos }}</p>
                   <p>Correo: {{ $item->dueno->correo }}</p>
                 </div>
                 <div class="modal-footer">
@@ -180,6 +186,9 @@
                   <form action="{{ route('editarVehiculo') }}" method="post">
                         @csrf
                         <input type="hidden" name="vehiculo_id" value="{{ $item->id }}">
+                        <div class="mb-3"> 
+                          <h6> <b> Importante</b>: para editar un vehículo es necesario completar todos los campos de este formulario</h6>
+                        </div>
                         <div class="mb-3">
                           <label for="inputMarca" class="form-label">Marca</label>
                           <input type="text" class="form-control" id="inputMarca" aria-describedby="marcaHelp" name="txtMarca" value="{{$item->marca}}">
@@ -194,7 +203,7 @@
 
                         <div class="mb-3">
                           <label for="inputAnho" class="form-label">Año</label>
-                          <input type="number" class="form-control" id="inputAnho" aria-describedby="anhoHelp" name="txtAnho" value="{{$item->anho}}">
+                          <input type="number" class="form-control" id="inputAnho" aria-describedby="anhoHelp" name="txtAnho" value="{{$item->anho}}" min="1886">
                           <div id="anhoHelp" class="form-text">Año del vehículo.</div>
                         </div>
 
@@ -208,8 +217,8 @@
                         </div>
                         <div class="mb-3">
                           <label for="inputPrecio" class="form-label">Precio</label>
-                          <input type="number" class="form-control" id="inputPrecio" aria-describedby="precioHelp" name="txtPrecio" value="{{$item->precio}}">
-                          <div id="precioHelp" class="form-text">Precio del vehculo.</div>
+                          <input type="number" class="form-control" id="inputPrecio" aria-describedby="precioHelp" name="txtPrecio" value="{{$item->precio}}" min="1">
+                          <div id="precioHelp" class="form-text">Precio del vehículo.</div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="my-button" data-bs-dismiss="modal">Cerrar</button>

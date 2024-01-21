@@ -27,6 +27,7 @@
   </div>
 </nav>
 <div class="p-5 table-responsive">
+  <h1 class="text-center"> Registro histórico </h1>
   <table class="table table-striped table-bordered table-hover my-table">
   <thead class="titulo-tabla">
     <tr>
@@ -42,54 +43,17 @@
       <th>{{$item->id}}</th>
       <td> 
         <!-- boton modal Vehiculo-->
-        Datos del vehículo <a href="#" class="my-button-small" data-bs-toggle="modal" data-bs-target="#modalVehiculo{{ $item->id }}">
-          <i class="fa-solid fa-car"></i> </a> 
+          <p>Marca: {{ $item->vehiculo->marca }}</p>
+          <p>Modelo: {{ $item->vehiculo->modelo }}</p>
+          <p>Año: {{ $item->vehiculo->anho }}</p>
+          <p>Precio: {{ $item->vehiculo->precio }}</p> 
       </td>
       <td> 
-        <!-- boton modal Actual-->
-        Datos del dueño del vehículo <a href="#" class="my-button-small" data-bs-toggle="modal" data-bs-target="#modalUsuario{{ $item->id }}">
-          <i class="fa-solid fa-user"></i> </a> 
+        <p>Nombre: {{ $item->usuario->nombre }}</p>
+        <p>Apellido: {{ $item->usuario->apellidos }}</p>
+        <p>Correo: {{ $item->usuario->correo }}</p>
       </td>
-      <td>{{$item->created_at}}</td>
-      	  <!-- Modal para visualizar vehiculo-->
-          <div class="modal fade" id="modalVehiculo{{ $item->id }}" tabindex="-1" aria-labelledby="modalVehiculo" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="modalVehiculo">Datos del vehículo</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p>Marca: {{ $item->vehiculo->marca }}</p>
-                  <p>Modelo: {{ $item->vehiculo->modelo }}</p>
-                  <p>Año: {{ $item->vehiculo->anho }}</p>
-                  <p>Precio: {{ $item->vehiculo->precio }}</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="my-button" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-            </div>
-          </div> 
-          <!-- Modal para visualizar dueño actual-->
-          <div class="modal fade" id="modalUsuario{{ $item->id }}" tabindex="-1" aria-labelledby="modalDuenho" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="modalDuenho">Datos del dueño del vehículo</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p>Nombre: {{ $item->usuario->nombre }}</p>
-                  <p>Apellido: {{ $item->usuario->apellidos }}</p>
-                  <p>Correo: {{ $item->usuario->correo }}</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="my-button" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-            </div>
-          </div>    
+      <td>{{$item->created_at}}</td>  
     </tr>
     @endforeach
   </tbody>
