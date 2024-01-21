@@ -20,8 +20,6 @@ class VehiculoController extends Controller
 
     public function editarVehiculo(Request $request){
         try {
-
-
             // Validar los campos del formulario
             $validator = Validator::make($request->all(), [
                     'txtMarca' => 'required',
@@ -31,11 +29,14 @@ class VehiculoController extends Controller
                     'txtPrecio' => 'required',
             ]);
             if ($validator->fails()) {
-            return back()->with("Error", "Error al modificar datos del vehiculo, por favor verifique que completó todos los campos necesarios")->with('message.duration', 5);
+            return back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with("Error", "Error al registrar un vehiculo, por favor verifique que completó todos los campos necesarios")
+                ->with('message.duration', 5);
             }else{
                 $vehiculoAntes = Vehiculo::find($request->vehiculo_id);
                 $duenhoAntes = $vehiculoAntes->duenho_id;
-
                 $vehiculoAntes->update([
                 'marca' => $request->txtMarca,
                 'modelo' => $request->txtModelo,
@@ -43,19 +44,16 @@ class VehiculoController extends Controller
                 'duenho_id' => $request->txtdueno_id,
                 'precio' => $request->txtPrecio,
                 ]);
-
                 $vehiculoDespues = Vehiculo::find($request->vehiculo_id);
                 $duenhoDespues = $vehiculoDespues->duenho_id;
-
                 //si el duenho del vehiculo cambia, se agrega al registro historico
                 if($duenhoAntes != $duenhoDespues){
                     Historico::create([
                     'vehiculo_id' => $request->vehiculo_id,
                     'usuario_id' => $duenhoDespues,
                 ]);
-
-            }
-            return back()->with("Correcto","Vehiculo modificado correctamente");
+                }
+                return back()->with("Correcto","Vehiculo modificado correctamente");
             }
             
 
@@ -77,7 +75,11 @@ class VehiculoController extends Controller
                     'txtPrecioNew' => 'required',
             ]);
             if ($validator->fails()) {
-            return back()->with("Error", "Error al modificar datos del vehiculo, por favor verifique que completó todos los campos necesarios")->with('message.duration', 5);
+            return back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with("Error", "Error al registrar un vehiculo, por favor verifique que completó todos los campos necesarios")
+                ->with('message.duration', 5);
             }else{
                 $nuevoVehiculo = new Vehiculo([
                 'marca' => $request->txtMarcaNew,

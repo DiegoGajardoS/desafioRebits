@@ -65,7 +65,7 @@ class UsuarioTest extends TestCase
         // Crear un usuario de prueba
         $usuario = Usuario::factory()->create();
 
-        // Realizar la solicitud para editar usuario
+        // Realizar la solicitud incompleta para editar usuario
         $response = $this->post(route('editarUsuario'), ['id' => $usuario->id,]);
         //se devuelven los errores
         $response->assertSessionHasErrors(['txtNombre', 'txtApellidos', 'txtCorreo']);
